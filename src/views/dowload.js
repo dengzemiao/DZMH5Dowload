@@ -10,12 +10,12 @@ export function DOWLOAD_FILE (url, proxy, proxyhttp) {
 // proxyhttp: 代理协议的链接地址，如果配置则会替换 url 中该段代理链接地址为 proxy 代理协议，所以 proxyhttp 有值，proxy 必须有值。(例如：http://dowload.file)
 export function DOWLOAD_FILE_PRO (url, filename, proxy, proxyhttp) {
   // 文件名称
-  var filename = filename
-  if (!filename) {
+  var fname = filename
+  if (!fname) {
     // 获得最后一个斜杠坐标
     const index = url.lastIndexOf('/')
     // 从斜杆后一个坐标开始截取
-    filename = url.substring(index + 1)
+    fname = url.substring(index + 1)
   }
   // 下载地址
   var dowloadURL = url
@@ -32,7 +32,7 @@ export function DOWLOAD_FILE_PRO (url, filename, proxy, proxyhttp) {
   // 模拟鼠标click点击事件
   var event = new MouseEvent('click')
   // 设置a节点的download属性值
-  a.download = filename
+  a.download = fname
   // 将需要下载的URL赋值给a节点的href
   a.href = dowloadURL
   // 触发鼠标点击事件
