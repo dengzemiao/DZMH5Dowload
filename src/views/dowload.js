@@ -1,3 +1,5 @@
+// 参考文章 https://blog.csdn.net/zz00008888/article/details/113847294
+
 // 下载文件
 export function DOWLOAD_FILE (url, proxy, proxyhttp) {
   DOWLOAD_FILE_PRO(url, '', proxy, proxyhttp)
@@ -22,7 +24,7 @@ export function DOWLOAD_FILE_PRO (url, filename, proxy, proxyhttp) {
   // 有代理链接地址
   if (proxyhttp && proxy) {
     // 替换代理链接地址为代理协议
-    dowloadURL.replace(proxyhttp, proxy)
+    dowloadURL = dowloadURL.replace(proxyhttp, proxy)
   } else if (proxy) {
     // 将下载链接匹配上代理协议
     dowloadURL = proxy + dowloadURL

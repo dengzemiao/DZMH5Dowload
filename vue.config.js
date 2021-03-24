@@ -19,6 +19,14 @@ module.exports = {
         pathRewrite: {
           '^/dowload2': ''
         }
+      },
+      '/dowload3': {
+        target: 'https://file.hepai.video',
+        ws: false,
+        changeOrigin: true,
+        pathRewrite: {
+          '^/dowload3': ''
+        }
       }
     }
   }
