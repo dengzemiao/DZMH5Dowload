@@ -18,14 +18,6 @@ export function DOWLOAD_FILE (url, proxy, proxyhttp) {
  * @param {*} proxyhttp 代理协议的链接地址，如果配置则会替换 url 中该段代理链接地址为 proxy 代理协议，所以 proxyhttp 有值，proxy 必须有值。(例如：http://dowload.file)
  */
 export function DOWLOAD_FILE_PRO (url, filename, proxy, proxyhttp) {
-  // 文件名称
-  var fname = filename
-  if (!fname) {
-    // 获得最后一个斜杠坐标
-    const index = url.lastIndexOf('/')
-    // 从斜杆后一个坐标开始截取
-    fname = url.substring(index + 1)
-  }
   // 下载地址
   var dowloadURL = url
   // 有代理链接地址
@@ -33,15 +25,15 @@ export function DOWLOAD_FILE_PRO (url, filename, proxy, proxyhttp) {
     // 替换代理链接地址为代理协议
     dowloadURL = dowloadURL.replace(proxyhttp, proxy)
     // 代理连接下载
-    DOWLOAD_FILE_URL_PROXY(dowloadURL, fname)
+    DOWLOAD_FILE_URL_PROXY(dowloadURL, filename)
   } else if (proxy) {
     // 将下载链接匹配上代理协议
     dowloadURL = proxy + dowloadURL
     // 代理连接下载
-    DOWLOAD_FILE_URL_PROXY(dowloadURL, fname)
+    DOWLOAD_FILE_URL_PROXY(dowloadURL, filename)
   } else {
     // 连接下载
-    DOWLOAD_FILE_URL(dowloadURL, fname)
+    DOWLOAD_FILE_URL(dowloadURL, filename)
   }
 }
 
@@ -56,7 +48,7 @@ export function DOWLOAD_FILE_URL_PROXY (url, filename) {
   // 模拟鼠标click点击事件
   var event = new MouseEvent('click')
   // 设置a节点的download属性值
-  a.download = filename
+  a.download = DOWLOAD_FILE_NAME(url, filename)
   // 将需要下载的URL赋值给a节点的href
   a.href = url
   // 触发鼠标点击事件
@@ -78,10 +70,29 @@ export function DOWLOAD_FILE_URL_PROXY (url, filename) {
     // 将需要下载的URL赋值给a节点的href
     a.href = url
     // 设置节点的download属性值
-    a.download = filename
+    a.download = DOWLOAD_FILE_NAME(url, filename)
     // 触发点击事件
     a.click()
     // 释放
     window.URL.revokeObjectURL(url)
   }))
+}
+
+/**
+ * @description: 获取链接文件名
+ * @param {*} url 非代理的正常链接
+ * @param {*} filename 文件名称
+ */
+ export function DOWLOAD_FILE_NAME (url, filename) {
+  // 文件名称
+  var fname = filename
+  // 没有文件名同时链接有值
+  if (!fname && url) {
+    // 获得最后一个斜杠坐标
+    const index = url.lastIndexOf('/')
+    // 从斜杆后一个坐标开始截取
+    fname = url.substring(index + 1)
+  }
+  // 返回
+  return fname
 }
