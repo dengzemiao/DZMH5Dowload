@@ -38,7 +38,7 @@ export function DOWLOAD_FILE_PRO (url, filename, proxy, proxyhttp) {
 }
 
 /**
- * @description: 下载指定代理链接
+ * @description: 下载指定代理链接或与当前网页同域名的链接
  * @param {*} url 拼接好的代理连接
  * @param {*} filename 文件名称
  */
@@ -56,7 +56,7 @@ export function DOWLOAD_FILE_URL_PROXY (url, filename) {
 }
 
 /**
- * @description: 下载指定链接
+ * @description: 下载指定链接，但是服务器得开启文件访问权限，否则会报跨域错误
  * @param {*} url 非代理的正常链接
  * @param {*} filename 文件名称
  */
