@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-04-09 19:17:39
- * @LastEditTime: 2021-04-12 15:01:07
+ * @LastEditTime: 2021-04-12 15:01:37
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /DZMH5Dowload/src/views/Home.vue
@@ -44,10 +44,10 @@ export default {
       // 由于服务器配置不一样，有的链接会报跨域错误，如果报跨域错误只能走代理下载，也可以要求服务器修改文件访问权限配置
 
       // 这是一个与当前网页同域名的链接，用于测试。
-      DOWLOAD_FILE_URL_PROXY('http://localhost:8082/dzm.png')
+      // DOWLOAD_FILE_URL_PROXY('http://localhost:8082/dzm.png')
 
       // 例如：服务器打开权限运行访问（七牛地址）下载成功
-      // DOWLOAD_FILE('https://file.hepai.video/local/other/6c5d7e97341b2d2806917ee797034835.png')
+      DOWLOAD_FILE('https://file.hepai.video/local/other/6c5d7e97341b2d2806917ee797034835.png')
       
       // 例如：服务器没有打开权限运行访问（百度图片）下载失败，跨域错误，那就只能走跨域
       // DOWLOAD_FILE('https://scpic.chinaz.net/files/pic/pic9/202103/hpic3704.jpg')
