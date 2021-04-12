@@ -60,7 +60,7 @@ export function DOWLOAD_FILE_URL_PROXY (url, filename) {
  * @param {*} url 非代理的正常链接
  * @param {*} filename 文件名称
  */
- export function DOWLOAD_FILE_URL (url, filename) {
+export function DOWLOAD_FILE_URL (url, filename) {
   // 获取链接二进制数据
   fetch(url).then(res => res.blob().then(blob => {
     // 创建一个a节点
@@ -83,7 +83,7 @@ export function DOWLOAD_FILE_URL_PROXY (url, filename) {
  * @param {*} url 非代理的正常链接
  * @param {*} filename 文件名称
  */
- export function DOWLOAD_FILE_NAME (url, filename) {
+export function DOWLOAD_FILE_NAME (url, filename) {
   // 文件名称
   var fname = filename
   // 没有文件名同时链接有值
