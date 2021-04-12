@@ -24,12 +24,12 @@ export function DOWLOAD_FILE_PRO (url, filename, proxy, proxyhttp) {
   if (proxyhttp && proxy && dowloadURL.includes(proxyhttp)) {
     // 替换代理链接地址为代理协议
     dowloadURL = dowloadURL.replace(proxyhttp, proxy)
-    // 代理连接下载
+    // 代理链接下载
     DOWLOAD_FILE_URL(dowloadURL, filename)
   } else if (proxy) {
     // 将下载链接匹配上代理协议
     dowloadURL = proxy + dowloadURL
-    // 代理连接下载
+    // 代理链接下载
     DOWLOAD_FILE_URL(dowloadURL, filename)
   } else {
     // 链接下载
