@@ -20,8 +20,8 @@ export function DOWLOAD_FILE (url, proxy, proxyhttp) {
 export function DOWLOAD_FILE_PRO (url, filename, proxy, proxyhttp) {
   // 下载地址
   var dowloadURL = url
-  // 有代理链接地址
-  if (proxyhttp && proxy) {
+  // 有代理链接地址，当前链接里面同时存在代理地址可以进行替换
+  if (proxyhttp && proxy && dowloadURL.includes(proxyhttp)) {
     // 替换代理链接地址为代理协议
     dowloadURL = dowloadURL.replace(proxyhttp, proxy)
     // 代理连接下载
