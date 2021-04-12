@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-04-09 19:17:39
- * @LastEditTime: 2021-04-12 15:01:37
+ * @LastEditTime: 2021-04-12 15:17:07
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /DZMH5Dowload/src/views/Home.vue
@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import { DOWLOAD_FILE, DOWLOAD_FILE_PRO, DOWLOAD_FILE_URL_PROXY } from './dowload'
+import { DOWLOAD_FILE, DOWLOAD_FILE_PRO } from './dowload'
 export default {
   data () {
     return {
@@ -44,7 +44,7 @@ export default {
       // 由于服务器配置不一样，有的链接会报跨域错误，如果报跨域错误只能走代理下载，也可以要求服务器修改文件访问权限配置
 
       // 这是一个与当前网页同域名的链接，用于测试。
-      // DOWLOAD_FILE_URL_PROXY('http://localhost:8082/dzm.png')
+      // DOWLOAD_FILE_URL('http://localhost:8082/dzm.png')
 
       // 例如：服务器打开权限运行访问（七牛地址）下载成功
       DOWLOAD_FILE('https://file.hepai.video/local/other/6c5d7e97341b2d2806917ee797034835.png')

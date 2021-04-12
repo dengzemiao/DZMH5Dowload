@@ -25,24 +25,24 @@ export function DOWLOAD_FILE_PRO (url, filename, proxy, proxyhttp) {
     // 替换代理链接地址为代理协议
     dowloadURL = dowloadURL.replace(proxyhttp, proxy)
     // 代理连接下载
-    DOWLOAD_FILE_URL_PROXY(dowloadURL, filename)
+    DOWLOAD_FILE_URL(dowloadURL, filename)
   } else if (proxy) {
     // 将下载链接匹配上代理协议
     dowloadURL = proxy + dowloadURL
     // 代理连接下载
-    DOWLOAD_FILE_URL_PROXY(dowloadURL, filename)
-  } else {
-    // 连接下载
     DOWLOAD_FILE_URL(dowloadURL, filename)
+  } else {
+    // 链接下载
+    DOWLOAD_FILE_URL_PRO(dowloadURL, filename)
   }
 }
 
 /**
- * @description: 下载指定代理链接或与当前网页同域名的链接
+ * @description: 下载指定代理链接 || 当前网页同域名的链接 || .pdf、。xls 等非图片视频链接
  * @param {*} url 拼接好的代理连接
  * @param {*} filename 文件名称
  */
-export function DOWLOAD_FILE_URL_PROXY (url, filename) {
+export function DOWLOAD_FILE_URL (url, filename) {
   // 创建一个a节点插入的document
   var a = document.createElement('a')
   // 模拟鼠标click点击事件
@@ -60,7 +60,7 @@ export function DOWLOAD_FILE_URL_PROXY (url, filename) {
  * @param {*} url 非代理的正常链接
  * @param {*} filename 文件名称
  */
-export function DOWLOAD_FILE_URL (url, filename) {
+export function DOWLOAD_FILE_URL_PRO (url, filename) {
   // 获取链接二进制数据
   fetch(url).then(res => res.blob().then(blob => {
     // 创建一个a节点
