@@ -6,7 +6,7 @@
  * @param {*} proxy 参考 DOWLOAD_FILE_PRO()
  * @param {*} proxyhttp 参考 DOWLOAD_FILE_PRO()
  */
-export function DOWLOAD_FILE (url, proxy, proxyhttp) {
+function DOWLOAD_FILE (url, proxy, proxyhttp) {
   DOWLOAD_FILE_PRO(url, '', proxy, proxyhttp)
 }
 
@@ -17,7 +17,7 @@ export function DOWLOAD_FILE (url, proxy, proxyhttp) {
  * @param {*} proxy 配置好的代理协议。(例如：/dowload， /dowload == http://dowload.file)
  * @param {*} proxyhttp 代理协议的链接地址，如果配置则会替换 url 中该段代理链接地址为 proxy 代理协议，所以 proxyhttp 有值，proxy 必须有值。(例如：http://dowload.file)
  */
-export function DOWLOAD_FILE_PRO (url, filename, proxy, proxyhttp) {
+function DOWLOAD_FILE_PRO (url, filename, proxy, proxyhttp) {
   // 下载地址
   var dowloadURL = url
   // 有代理链接地址，当前链接里面同时存在代理地址可以进行替换
@@ -38,11 +38,11 @@ export function DOWLOAD_FILE_PRO (url, filename, proxy, proxyhttp) {
 }
 
 /**
- * @description: 下载指定代理链接 || 当前网页同域名的链接 || .pdf、。xls 等非图片视频链接
- * @param {*} url 拼接好的代理连接
+ * @description: 下载指定代理链接 || 当前网页同域名的链接 || .pdf、.xlsx 等非图片视频链接
+ * @param {*} url 代理链接 || 链接
  * @param {*} filename 文件名称
  */
-export function DOWLOAD_FILE_URL (url, filename) {
+function DOWLOAD_FILE_URL (url, filename) {
   // 创建一个a节点插入的document
   var a = document.createElement('a')
   // 模拟鼠标click点击事件
@@ -60,7 +60,7 @@ export function DOWLOAD_FILE_URL (url, filename) {
  * @param {*} url 非代理的正常链接
  * @param {*} filename 文件名称
  */
-export function DOWLOAD_FILE_URL_PRO (url, filename) {
+function DOWLOAD_FILE_URL_PRO (url, filename) {
   // 获取链接二进制数据
   fetch(url).then(res => res.blob().then(blob => {
     // 创建一个a节点
@@ -80,10 +80,10 @@ export function DOWLOAD_FILE_URL_PRO (url, filename) {
 
 /**
  * @description: 获取链接文件名
- * @param {*} url 非代理的正常链接
+ * @param {*} url 链接
  * @param {*} filename 文件名称
  */
-export function DOWLOAD_FILE_NAME (url, filename) {
+function DOWLOAD_FILE_NAME (url, filename) {
   // 文件名称
   var fname = filename
   // 没有文件名同时链接有值
@@ -95,4 +95,13 @@ export function DOWLOAD_FILE_NAME (url, filename) {
   }
   // 返回
   return fname
+}
+
+// 导出
+module.exports = {
+  DOWLOAD_FILE,
+  DOWLOAD_FILE_PRO,
+  DOWLOAD_FILE_URL,
+  DOWLOAD_FILE_URL_PRO,
+  DOWLOAD_FILE_NAME
 }

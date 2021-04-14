@@ -1,11 +1,3 @@
-<!--
- * @Author: your name
- * @Date: 2021-04-09 19:17:39
- * @LastEditTime: 2021-04-12 15:33:02
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: /DZMH5Dowload/src/views/Home.vue
--->
 <template>
   <div>
     <div class="dowload-btn" @click="touchProxyDowload1">按钮-链接下载</div>
@@ -49,10 +41,10 @@ export default {
       // DOWLOAD_FILE_URL('http://api-okr.netjoy.com/dowload/2021-04-12_15-21-50.xlsx')
 
       // 例如：服务器打开权限运行访问（七牛地址）下载成功
-      // DOWLOAD_FILE('https://file.hepai.video/local/other/6c5d7e97341b2d2806917ee797034835.png')
+      DOWLOAD_FILE('https://file.hepai.video/local/other/6c5d7e97341b2d2806917ee797034835.png')
       
       // 例如：服务器没有打开权限运行访问（百度图片）下载失败，跨域错误，那就只能走跨域
-      DOWLOAD_FILE('http://api-okr.netjoy.com/dowload/2021-04-12_15-21-50.xlsx')
+      // DOWLOAD_FILE('http://api-okr.netjoy.com/dowload/2021-04-12_15-21-50.xlsx')
     },
     // 按钮-代理下载（代理配置存放在 vue.config.js，也可以放在服务器中配置）
     touchProxyDowload2 () {
