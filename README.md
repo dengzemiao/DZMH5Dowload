@@ -6,7 +6,7 @@ Vue 下载任何URL文件 Demo
 通过 npm 引入
 
 ```
-npm i dzm-download-h5
+npm i dzm-dl-h5
 ```
 
 然后在 main.js 中进行导入
@@ -23,8 +23,8 @@ import store from './store'
   DOWLOAD_FILE_URL,
   DOWLOAD_FILE_URL_PRO,
   DOWLOAD_FILE_NAME 
-} from 'dzm-download-h5'
-import DZMH5Download from 'dzm-download-h5'
+} from 'dzm-dl-h5'
+import DZMH5Download from 'dzm-dl-h5'
 Vue.prototype.$download = DZMH5Download
 
 Vue.config.productionTip = false
